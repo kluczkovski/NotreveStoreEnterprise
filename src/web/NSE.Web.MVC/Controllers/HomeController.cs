@@ -28,10 +28,33 @@ namespace NSE.Web.MVC.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [Route("error/{id:length(3,3)}")]
+        public IActionResult Error(int id)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var modelError = new ErrorViewModel();
+
+            if (id == 500)
+            {
+                modelError.ErrorCode = id;
+                modelError.Title = "It has happened an error";
+                modelError.Message = "It has happened an erro! Please try again late.";
+            }
+
+            if (id == 404)
+            {
+                modelError.ErrorCode = id;
+                modelError.Title = "Ops! Page not found.";
+                modelError.Message = "The page that you are looking for does not exit! <br /> Try to contact our support.";
+            }
+
+            if (id == 403)
+            {
+                modelError.ErrorCode = id;
+                modelError.Title = "Accesss denied.";
+                modelError.Message = "You do not have access this page.";
+            }
+
+            return View("Error", modelError);
         }
     }
 }

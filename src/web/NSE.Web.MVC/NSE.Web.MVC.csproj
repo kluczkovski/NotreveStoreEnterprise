@@ -4,4 +4,26 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Configuration\" />
+    <None Remove="Views\Identity\" />
+    <None Remove="Services\" />
+    <None Remove="Models\ViewModels\" />
+    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <None Remove="Extensions\" />
+    <None Remove="Views\Shared\Component\" />
+    <None Remove="Views\Shared\Components\Summary\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configuration\" />
+    <Folder Include="Views\Identity\" />
+    <Folder Include="Services\" />
+    <Folder Include="Models\ViewModels\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Views\Shared\Components\" />
+    <Folder Include="Views\Shared\Components\Summary\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.17" />
+  </ItemGroup>
 </Project>
